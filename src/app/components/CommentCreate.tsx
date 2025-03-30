@@ -9,7 +9,7 @@ import axios from "axios";
 const CommentCreate: React.FC<{ postId: string }> = ({ postId }) => {   
    
     const [content, setContent] = useState("");
-    const onSubmit = async (e: React.FormEvent, postId: string, content: string) => {   
+    const onSubmit = async  (e: React.FormEvent, postId: string, content: string) => {   
         e.preventDefault(); // Prevent the default form submission behavior
     
         try {
