@@ -1,26 +1,8 @@
-import react from "react";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import React from "react";
 
-const CommentList: React.FC<{ postId: string }> = ({ postId }) => {
-  const [comments, setComments] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `http://localhost:4001/posts/${postId}/comments`
-      );
-      setComments(response.data);
-    } catch (error) {
-      console.error("Error fetching comments:", error);
-    }
-   
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+const CommentList: React.FC<{ comments: Array<string> }> = ({ comments }) => {
+ 
+  console.log("comments", comments)
   const renderedComments = comments.map((comment: any) => {
     return <li key={comment.id}>{comment.content}</li>
     })
